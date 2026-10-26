@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUZ PEARL | 高端珠宝</title>
+    <style>
+      :root {
+        --bg: #f8f6f2;
+        --white: #fffdf9;
+        --gold: #bb9a58;
+        --gold-deep: #9a7a3d;
+        --text: #3f372f;
+        --muted: #8c8276;
+        --line: rgba(187, 154, 88, 0.2);
+        --shadow: 0 24px 60px rgba(104, 84, 49, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Times New Roman", "PingFang SC", "Hiragino Sans GB",
+          "Microsoft YaHei", serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 36%),
+          linear-gradient(180deg, #fffdf9 0%, #f7f3ec 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .container {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(18px);
+        background: rgba(255, 253, 249, 0.86);
+        border-bottom: 1px solid rgba(187, 154, 88, 0.12);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
+      }
+
+      .brand {
+        letter-spacing: 0.28em;
+        font-size: 1rem;
+        color: var(--gold-deep);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .hero {
+        padding: 42px 0 30px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        padding: 70px 64px;
+        background:
+          linear-gradient(145deg, rgba(255, 253, 249, 0.96), rgba(246, 239, 227, 0.94));
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-copy::after {
+        content: "";
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        border: 1px solid rgba(187, 154, 88, 0.16);
+        border-radius: 50%;
+        top: -110px;
+        right: -60px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 18px;
+        font-size: 0.82rem;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 0.95;
+        font-weight: 500;
+        max-width: 520px;
+      }
+
+      .hero-text {
+        margin-top: 24px;
+        max-width: 470px;
+        font-size: 1rem;
+        line-height: 1.9;
+        color: var(--muted);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        border: 1px solid var(--gold);
+        font-size: 0.9rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        transition: 0.3s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(180deg, #cfb27a, #b8944f);
+        color: white;
+      }
+
+      .btn-secondary {
+        color: var(--gold-deep);
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 32px rgba(187, 154, 88, 0.18);
+      }
+
+      .hero-visual {
+        min-height: 620px;
+        border-radius: 0 0 0 96px;
+        background:
+          linear-gradient(rgba(65, 51, 30, 0.18), rgba(65, 51, 30, 0.08)),
+          url("https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1400&q=80")
+            center/cover;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card {
+        position: absolute;
+        left: 32px;
+        bottom: 32px;
+        background: rgba(255, 253, 249, 0.88);
+        padding: 22px 24px;
+        border: 1px solid rgba(187, 154, 88, 0.18);
+        max-width: 270px;
+      }
+
+      .hero-card strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.15rem;
+        font-weight: 500;
+      }
+
+      .section {
+        padding: 88px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 18px;
+        font-size: 2.3rem;
+        font-weight: 500;
+      }
+
+      .section-subtitle {
+        max-width: 620px;
+        margin: 0 auto 48px;
+        text-align: center;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .product-card {
+        background: rgba(255, 253, 249, 0.92);
+        border: 1px solid var(--line);
+        box-shadow: 0 18px 40px rgba(99, 81, 52, 0.08);
+        overflow: hidden;
+      }
+
+      .product-image {
+        aspect-ratio: 4 / 4.7;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .product-content {
+        padding: 24px;
+      }
+
+      .product-content h3 {
+        font-size: 1.35rem;
+        font-weight: 500;
+      }
+
+      .product-meta {
+        margin-top: 10px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 0.96rem;
+      }
+
+      .price {
+        display: inline-block;
+        margin-top: 18px;
+        color: var(--gold-deep);
+        letter-spacing: 0.08em;
+      }
+
+      .story {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .story-visual {
+        min-height: 520px;
+        background:
+          linear-gradient(rgba(255, 253, 249, 0.1), rgba(255, 253, 249, 0.06)),
+          url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80")
+            center/cover;
+        border-radius: 120px 0 120px 0;
+        box-shadow: var(--shadow);
+      }
+
+      .story-copy {
+        padding: 36px 14px 36px 24px;
+      }
+
+      .story-copy p {
+        margin-top: 20px;
+        color: var(--muted);
+        line-height: 2;
+      }
+
+      .story-note {
+        margin-top: 28px;
+        padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--gold-deep);
+        letter-spacing: 0.08em;
+      }
+
+      .site-footer {
+        padding: 28px 0 44px;
+        color: var(--muted);
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
+        .story {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          padding: 48px 32px;
+        }
+
+        .hero-visual {
+          min-height: 480px;
+          border-radius: 0 0 0 64px;
+        }
+
+        .products {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .container {
+          width: min(100% - 28px, 100%);
+        }
+
+        .nav {
+          flex-direction: column;
+          justify-content: center;
+          gap: 12px;
+          padding: 18px 0;
+        }
+
+        .nav-links {
+          gap: 18px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero {
+          padding-top: 22px;
+        }
+
+        .hero-copy {
+          padding: 36px 24px;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+        }
+
+        .products {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 68px 0;
+        }
+
+        .story-visual {
+          min-height: 360px;
+          border-radius: 64px 0 64px 0;
+        }
+
+        .section-title {
+          font-size: 1.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#" class="brand">LUZ PEARL</a>
+        <nav class="nav-links">
+          <a href="#home">首页</a>
+          <a href="#products">系列作品</a>
+          <a href="#story">品牌故事</a>
+          <a href="#contact">联系我们</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Refined Jewelry</span>
+            <h1>珍珠的光泽，写给优雅女性的低语。</h1>
+            <p class="hero-text">
+              以天然珍珠与温润金色为灵感，呈现简洁却充满质感的珠宝语言。
+              每一条项链与每一对耳环，都为日常与重要时刻增添克制而耀眼的光芒。
+            </p>
+            <div class="hero-actions">
+              <a href="#products" class="btn btn-primary">探索系列</a>
+              <a href="#story" class="btn btn-secondary">了解品牌</a>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="高端珍珠珠宝展示图">
+            <div class="hero-card">
+              <strong>Signature Pearl</strong>
+              <p>
+                甄选光泽饱满的珍珠，搭配细腻金属线条，让极简设计更显高级。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="products">
+        <div class="container">
+          <span class="eyebrow" style="text-align: center; display: block;">Collection</span>
+          <h2 class="section-title">精选珠宝系列</h2>
+          <p class="section-subtitle">
+            从珍珠项链到耳环，每一件作品都延续柔和、纯净与女性力量并存的美学表达。
+          </p>
+
+          <div class="products">
+            <article class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80');"
+              ></div>
+              <div class="product-content">
+                <h3>月光珍珠项链</h3>
+                <p class="product-meta">
+                  圆润珍珠与纤细金链交织，适合晚宴与日常穿搭，轻盈却不失存在感。
+                </p>
+                <span class="price">RMB 2,680</span>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=80');"
+              ></div>
+              <div class="product-content">
+                <h3>晨曦垂坠耳环</h3>
+                <p class="product-meta">
+                  细长耳线搭配珍珠吊坠，线条利落优雅，在转身之间闪现柔和光泽。
+                </p>
+                <span class="price">RMB 1,980</span>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div
+                class="product-image"
+                style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=80');"
+              ></div>
+              <div class="product-content">
+                <h3>鎏金花瓣耳饰</h3>
+                <p class="product-meta">
+                  金色花瓣轮廓与小颗珍珠点缀，简洁中带有轻柔的浪漫气息。
+                </p>
+                <span class="price">RMB 2,280</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="story">
+        <div class="container story">
+          <div class="story-visual" aria-label="品牌故事配图"></div>
+          <div class="story-copy">
+            <span class="eyebrow">About Us</span>
+            <h2 class="section-title" style="text-align: left; margin-bottom: 0;">
+              为温柔与力量，打造恒久闪耀的珠宝。
+            </h2>
+            <p>
+              LUZ PEARL
+              相信真正的奢华不是繁复堆叠，而是在纯粹之中保留最打动人心的细节。
+              我们专注珍珠项链与耳环设计，用克制的比例、细腻的金属光泽与自然珍珠的温润触感，陪伴每一位女性表达自己的独特气质。
+            </p>
+            <p>
+              从材质甄选到工艺打磨，每一道步骤都以高级质感为核心，让珠宝不只是装饰，更成为记录当下与情感的珍贵存在。
+            </p>
+            <div class="story-note">Natural Pearl · Minimal Luxury · Feminine Elegance</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container">
+        LUZ PEARL © 2026 | 珍珠与金色交织的现代女性珠宝美学
+      </div>
+    </footer>
+  </body>
+</html>
